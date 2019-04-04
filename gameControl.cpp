@@ -138,7 +138,7 @@ void popOutChecker(char p_marker, int column, int game_board[6][7]) {
 
     bool move_is_valid = isLastMoveValid(column);
     int pop_column = column;
-    int index;
+    int index=0;
 
     // if more is not valid request until valid
     if(!move_is_valid) {
@@ -152,14 +152,14 @@ void popOutChecker(char p_marker, int column, int game_board[6][7]) {
     }
 
     for(int i=5; i >= 0; i--) {
-        if(game_board[i][pop_column] == 1 && p_marker == 'X') {
+        if(game_board[i][pop_column] == 1 && p_marker == 'O') {
 
             // remove requested checker player 1
             game_board[i][pop_column] = 0;
             index = i;
             break;
         }
-        else if(game_board[i][pop_column] == 2 && p_marker == 'O') {
+        else if(game_board[i][pop_column] == 2 && p_marker == 'X') {
 
             // remove requested checker player 2
             game_board[i][pop_column] = 0;

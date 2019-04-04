@@ -45,7 +45,8 @@ void drawGame(std::string move_loss_msg, int game_board[6][7], int NUM_ROWS, int
                         case 2:
                             if (game_board[i-1][j] == 0) {
                                 std::cout << " ";
-                            } else {
+                            }
+                            else {
                                 if(game_board[i-1][j] == 1) {
                                     std::cout << 'X';
                                 }
@@ -107,9 +108,6 @@ void gameLoop(bool p1_starts, int game_board[6][7], int NUM_ROWS, int NUM_COLS,
     if(!p1_starts) {
         loop_count += 1;
     }
-
-    // wait for user to press a key
-    system("pause");
 
     // message for illegal moves
     std::string msg;

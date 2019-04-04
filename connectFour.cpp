@@ -16,8 +16,8 @@ int main(void) {
 
     const int NUM_ROWS = 6,
               NUM_COLS = 7;
-    const char p1_marker = 'X',
-               p2_marker = 'O';
+    char p1_marker = 'X',
+         p2_marker = 'O';
 
     bool p1_starts;
 
@@ -33,19 +33,25 @@ int main(void) {
     srand(time(NULL));
 
     // Game intro
-    std::cout << "\n\t\t\t\tWelcome to Connect4\n\t\tThe goal of Connect4 is to be the first\n"
-              << "\tplayer to place four checkers in a row, either\n"
-              << "\t\thorizontally, vertically, or diagonally.\n\n";
+    std::cout << "\n\t   Welcome to Connect4\n   The goal of Connect4 is to be the first\n"
+              << "player to place four checkers in a row, either\n"
+              << "   horizontally, vertically, or diagonally.\n\n";
 
     // Decide who starts
     if(rand() % 2 == 0) {
-        std::cout << "\n\n\t\tPlayer #1 (" << p1_marker << ") was selected to go first.\n\n";
+        std::cout << "\n\n   Player #1 (" << p1_marker << ") was selected to go first.\n\n";
         p1_starts = true;
     }
     else {
-        std::cout << "\n\n\t\tPlayer #2 (" << p2_marker << ") was selected to go first.\n\n";
+        std::cout << "\n\n   Player #2 (" << p2_marker << ") was selected to go first.\n\n";
         p1_starts = false;
     }
+
+    // wait for user to press a key
+    std::cout << "\n   Press any key to continue...";
+    std::cin.ignore();
+
+
 
     gameLoop(p1_starts, game_board, NUM_ROWS, NUM_COLS, p1_marker, p2_marker);
 
